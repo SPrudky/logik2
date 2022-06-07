@@ -26,11 +26,31 @@ namespace logik2
                     flag [i] = false;
                     result.Add (true);
                 }
+                else
+                {
+                    flag [i]= true;
+                }
+                //flag [i] = pattern[i]!=pins[i];
             }
+           
+
             
             for(int i = 0; i < pattern.Length; i++)
             {
-
+               if (flag[i])
+                {
+                    for (int j = 0; j < pattern.Length; j++) 
+                    {
+                        if(flag[j])
+                        {
+                            if (pins [i] == pattern[j])
+                            {
+                                result.Add(false);
+                                break;
+                            }
+                        }
+                    }
+                }
             }
 
             return new List<bool>();

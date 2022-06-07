@@ -18,20 +18,21 @@ namespace logik2
         public List<bool> Evaluate(pin[] pattern)
         {
             List<bool> result = new List<bool>();
-            List<pin> patternCopy = pattern.ToList();
-            int i = 0;
-            while (i < patternCopy.Count)
+            bool[] flag = new bool[4];
+            for (int i = 0; i < pattern.Length; i++)
             {
-                if(pins[i] == patternCopy[i])
+                if(pattern [i] == pins[i])
                 {
-                    result.Add(true);
-                    patternCopy.RemoveAt(i);
-                }
-                else
-                {
-                    i++;
+                    flag [i] = false;
+                    result.Add (true);
                 }
             }
+            
+            for(int i = 0; i < pattern.Length; i++)
+            {
+
+            }
+
             return new List<bool>();
         }
     }
